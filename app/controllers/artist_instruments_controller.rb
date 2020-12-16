@@ -13,8 +13,15 @@ class ArtistInstrumentsController < ApplicationController
     end 
 
     def create
-        @artist_instrument = ArtistInstrument.create(params.require(:artist_instrument).permit(:artist_id, :instrument_id))
+        @artist_instrument = ArtistInstrument.create(artist_params)
         redirect_to @artist_instrument.artist
+    end 
+
+
+    private 
+
+    def artist_params
+      params.require(:artist_instrument).permit(:artist_id, :instrument_id)
     end 
 
 end
