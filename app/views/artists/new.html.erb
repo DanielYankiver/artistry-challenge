@@ -1,0 +1,23 @@
+<h1>New Artist</h1>
+
+<% if flash[:errors_array] %>
+  <% flash[:errors_array].each do |error| %>
+    <p style="color: red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<%= form_for @artist do |f| %>
+
+    <%= f.label :name, "Artist Name:" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :age, "Age:" %>
+    <%= f.number_field :age %>
+    <br>
+    <%= f.label :title, "Your Title:" %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.submit %>
+
+<% end  %>
